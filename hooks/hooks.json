@@ -1,0 +1,17 @@
+{
+  "description": "Custom hooks for gh CLI safety",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/wadeseidule/.claude/hooks/gh_api_check.py",
+            "timeout": 5
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ]
+  }
+}

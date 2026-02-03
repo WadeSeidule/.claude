@@ -1,0 +1,88 @@
+{
+  "model": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+  "alwaysThinkingEnabled": true,
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "autoAllowBashIfSandboxed": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(whoami)",
+      "Bash(env)",
+      "Bash(tree:*)",
+      "Bash(npm:*)",
+      "Bash(yarn:*)",
+      "Bash(pnpm:*)",
+      "Bash(pip:*)",
+      "Bash(cargo:*)",
+      "Bash(go:*)",
+      "Bash(make:*)",
+      "Bash(pytest:*)",
+      "Bash(jest:*)",
+      "Bash(tsc:*)",
+      "Bash(rustc:*)",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(wc:*)",
+      "Bash(uv:*)",
+      "Bash(uvx:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(bc:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(tar:*)",
+      "Bash(zip:*)",
+      "Bash(unzip:*)",
+      "Bash(gzip:*)",
+      "Bash(xargs:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(cat:*)",
+      "Bash(while read:*)",
+      "Bash(echo:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run watch:*)",
+      "Bash(gh workflow list:*)",
+      "Bash(gh workflow view:*)",
+      "Read(/tmp/**)",
+      "Write(/tmp/**)"
+    ]
+  },
+  "deny": [
+    "Read(~/.ssh/**)"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/wadeseidule/.claude/hooks/gh_api_check.py",
+            "timeout": 5
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ]
+  }
+}

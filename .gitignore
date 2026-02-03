@@ -1,0 +1,35 @@
+# Credentials (sensitive)
+.credentials.json
+
+# Cache files
+cache/
+paste-cache/
+stats-cache.json
+statsig/
+
+# Debug output
+debug/
+
+# History and snapshots
+history.jsonl
+file-history/
+shell-snapshots/
+session-env/
+
+# Local settings (machine-specific)
+settings.local.json
+
+# Tasks and todos (ephemeral)
+tasks/
+todos/
+
+# Plans and projects
+plans/
+projects/
+
+# Plugins (auto-generated/cached)
+plugins/cache/
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+plugins/marketplaces/
+plugins/repos/
