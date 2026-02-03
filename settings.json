@@ -65,7 +65,19 @@
       "Bash(gh workflow list:*)",
       "Bash(gh workflow view:*)",
       "Read(/tmp/**)",
-      "Write(/tmp/**)"
+      "Write(/tmp/**)",
+      "mcp__datadog__*",
+      "mcp__grafana__*",
+      "mcp__glean_default__*",
+      "Bash(kubectl get *)",
+      "Bash(kubectl describe *)",
+      "Bash(kubectl logs *)",
+      "Bash(kubectl top *)",
+      "Bash(kubectl config *)",
+      "Bash(kubectl api-resources *)",
+      "Bash(kubectl explain *)",
+      "Bash(kubectl version *)",
+      "Bash(kubectl cluster-info *)"
     ]
   },
   "deny": [
@@ -79,6 +91,11 @@
             "type": "command",
             "command": "python3 /Users/wadeseidule/.claude/hooks/gh_api_check.py",
             "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "/Users/wadeseidule/.claude/hooks/kubectl-context-check.sh",
+            "timeout": 10
           }
         ],
         "matcher": "Bash"
