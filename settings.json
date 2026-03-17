@@ -1,29 +1,33 @@
 {
-  "model": "global.anthropic.claude-opus-4-5-20251101-v1:0",
-  "alwaysThinkingEnabled": true,
-  "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true
-  },
-  "sandbox": {
-    "autoAllowBashIfSandboxed": true
-  },
   "permissions": {
+    "additionalDirectories": [
+      "/Users/wadeseidule/dev",
+      "/Users/wadeseidule/src"
+    ],
     "allow": [
-      "Bash(git status:*)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git show:*)",
-      "Bash(git fetch:*)",
-      "Bash(git pull:*)",
-      "Bash(git -C * status:*)",
-      "Bash(git -C * diff:*)",
-      "Bash(git -C * log:*)",
-      "Bash(git -C * show:*)",
-      "Bash(git -C * fetch:*)",
-      "Bash(git -C * pull:*)",
-      "Bash(git rev-parse:*)",
-      "Bash(git -C * rev-parse:*)",
+      "Bash(git status*:*)",
+      "Bash(git diff*:*)",
+      "Bash(git log*:*)",
+      "Bash(git show*:*)",
+      "Bash(git fetch*:*)",
+      "Bash(git pull*:*)",
+      "Bash(git add*:*)",
+      "Bash(git commit*:*)",
+      "Bash(git push *:*)",
+      "Bash(git checkout*:*)",
+      "Bash(git switch*:*)",
+      "Bash(git branch *:*)",
+      "Bash(git branch:*)",
+      "Bash(git merge*:*)",
+      "Bash(git rebase*:*)",
+      "Bash(git stash*:*)",
+      "Bash(git cherry-pick*:*)",
+      "Bash(git tag*:*)",
+      "Bash(git remote*:*)",
+      "Bash(git rm*:*)",
+      "Bash(git mv*:*)",
+      "Bash(git rev-parse*:*)",
+      "Bash(git -C *:*)",
       "Bash(ls:*)",
       "Bash(pwd)",
       "Bash(which:*)",
@@ -72,6 +76,11 @@
       "Bash(gh run watch:*)",
       "Bash(gh workflow list:*)",
       "Bash(gh workflow view:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "Bash(gh auth:*)",
       "Read(/tmp/**)",
       "Write(/tmp/**)",
       "mcp__datadog__*",
@@ -85,29 +94,34 @@
       "Bash(kubectl api-resources *)",
       "Bash(kubectl explain *)",
       "Bash(kubectl version *)",
-      "Bash(kubectl cluster-info *)"
+      "Bash(kubectl cluster-info *)",
+      "Skill"
     ]
   },
-  "deny": [
-    "Read(~/.ssh/**)"
-  ],
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Bash",
         "hooks": [
-          {
-            "type": "command",
-            "command": "python3 /Users/wadeseidule/.claude/hooks/gh_api_check.py",
-            "timeout": 5
-          },
           {
             "type": "command",
             "command": "/Users/wadeseidule/.claude/hooks/kubectl-context-check.sh",
             "timeout": 10
           }
-        ],
-        "matcher": "Bash"
+        ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "airflow@nextdoor-skills": true,
+    "okta-auth@nextdoor-skills": true
+  },
+  "sandbox": {
+    "autoAllowBashIfSandboxed": true
+  },
+  "alwaysThinkingEnabled": true,
+  "voiceEnabled": true,
+  "deny": [
+    "Read(~/.ssh/**)"
+  ]
 }
