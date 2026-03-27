@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "write-user-docs",
+  "owner": "yebot",
+  "repo": "rad-cc-plugins",
+  "path": "plugins/webapp-team/skills/write-user-docs",
+  "branch": "main",
+  "sha": "e78040ae09a20f1531daccd09a2c9f0ff2eb7fd6",
+  "source": "manual"
+}

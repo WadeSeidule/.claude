@@ -29,7 +29,20 @@ projects/
 
 # Plugins (auto-generated/cached)
 plugins/cache/
+plugins/config.json
+plugins/data/
+plugins/blocklist.json
+plugins/install-counts-cache.json
 plugins/installed_plugins.json
 plugins/known_marketplaces.json
 plugins/marketplaces/
 plugins/repos/
+
+# Sessions (ephemeral)
+sessions/
+
+# Backups (auto-generated)
+backups/
+
+# Auth cache
+mcp-needs-auth-cache.json
