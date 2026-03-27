@@ -46,3 +46,6 @@ backups/
 
 # Auth cache
 mcp-needs-auth-cache.json
+
+# Runtime databases
+memory.db
