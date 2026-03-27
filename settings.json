@@ -94,6 +94,16 @@
       "Bash(kubectl explain *)",
       "Bash(kubectl version *)",
       "Bash(kubectl cluster-info *)",
+      "Bash(jq:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(open:*)",
+      "Bash(databricks:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(date:*)",
+      "Bash(realpath:*)",
       "Skill"
     ],
     "additionalDirectories": [
@@ -118,6 +128,9 @@
   "enabledPlugins": {
     "airflow@nextdoor-skills": true,
     "okta-auth@nextdoor-skills": true,
+    "git@nextdoor-marketplace": true,
+    "frontend-design@claude-code-plugins": true,
+    "skill-creator@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
@@ -127,7 +140,6 @@
     "feature-dev@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "serena@claude-plugins-official": true,
@@ -136,6 +148,7 @@
     "plugin-dev@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "data@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
     "boris-flow@nextdoor-skills": true,
     "databricks@nextdoor-skills": true,
     "oz@nextdoor-skills": true,
@@ -147,6 +160,12 @@
         "source": "git",
         "url": "https://github.com/Nextdoor/skills.git"
       }
+    },
+    "nextdoor-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "Nextdoor/ndai"
+      }
     }
   },
   "sandbox": {
@@ -155,6 +174,10 @@
   "alwaysThinkingEnabled": true,
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "effort": "max",
+  "ask": [
+    "Bash(rm -rf:*)"
+  ],
   "deny": [
     "Read(~/.ssh/**)"
   ]
