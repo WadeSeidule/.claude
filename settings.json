@@ -108,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/wadeseidule/.claude/hooks/kubectl-context-check.sh",
+            "command": "$HOME/.claude/hooks/kubectl-context-check.sh",
             "timeout": 10
           }
         ]
@@ -135,7 +135,11 @@
     "atlassian@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "data@claude-plugins-official": true
+    "data@claude-plugins-official": true,
+    "boris-flow@nextdoor-skills": true,
+    "databricks@nextdoor-skills": true,
+    "oz@nextdoor-skills": true,
+    "spark-optimization@nextdoor-skills": true
   },
   "extraKnownMarketplaces": {
     "nextdoor-skills": {
