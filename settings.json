@@ -85,8 +85,10 @@
     "additionalDirectories": [
       "/Users/wadeseidule/dev",
       "/Users/wadeseidule/src"
-    ]
+    ],
+    "defaultMode": "auto"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -159,8 +161,8 @@
     "autoAllowBashIfSandboxed": true
   },
   "alwaysThinkingEnabled": true,
-  "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": true,
   "effort": "max",
   "ask": [
     "Bash(rm -rf *)",
@@ -208,5 +210,5 @@
   "deny": [
     "Read(~/.ssh/**)"
   ],
-  "model": "opus"
+  "skipAutoPermissionPrompt": true
 }
