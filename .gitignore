@@ -19,6 +19,10 @@ session-env/
 # Local settings (machine-specific)
 settings.local.json
 
+# Harness-managed remote state (not user config)
+policy-limits.json
+remote-settings.json
+
 # Tasks and todos (ephemeral)
 tasks/
 todos/
