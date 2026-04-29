@@ -82,13 +82,12 @@
       "Bash(dataflow *)",
       "Skill"
     ],
+    "defaultMode": "auto",
     "additionalDirectories": [
       "/Users/wadeseidule/dev",
       "/Users/wadeseidule/src"
-    ],
-    "defaultMode": "auto"
+    ]
   },
-  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -141,7 +140,9 @@
     "boris-flow@nextdoor-skills": true,
     "databricks@nextdoor-skills": true,
     "oz@nextdoor-skills": true,
-    "spark-optimization@nextdoor-skills": true
+    "spark-optimization@nextdoor-skills": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "warp@claude-code-warp": true
   },
   "extraKnownMarketplaces": {
     "nextdoor-skills": {
@@ -155,6 +156,12 @@
         "source": "github",
         "repo": "Nextdoor/ndai"
       }
+    },
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
     }
   },
   "sandbox": {
@@ -162,6 +169,7 @@
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "effort": "max",
   "ask": [
@@ -209,6 +217,5 @@
   ],
   "deny": [
     "Read(~/.ssh/**)"
-  ],
-  "skipAutoPermissionPrompt": true
+  ]
 }
