@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "write-pr-description",
+  "owner": "eveld",
+  "repo": "claude",
+  "path": "skills/write-pr-description",
+  "branch": "main",
+  "sha": "6fc96c25da83a9e552b281d56491382365712a96",
+  "source": "manual"
+}

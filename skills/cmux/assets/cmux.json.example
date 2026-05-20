@@ -1,0 +1,26 @@
+{
+  "//": "Example cmux.json. Drop at one of (precedence top→bottom):",
+  "//  ": "  ./.cmux/cmux.json   — preferred per-repo location",
+  "//   ": "  ./cmux.json        — legacy per-repo location",
+  "//    ": "  ~/.config/cmux/cmux.json — global, applies everywhere",
+  "//     ": "Changes are picked up automatically — no reload needed.",
+
+  "commands": [
+    {
+      "name": "New worktree",
+      "keywords": ["worktree", "new", "git", "branch", "agent"],
+      "command": "cmux-worktree new "
+    },
+    {
+      "name": "Close worktree",
+      "keywords": ["worktree", "close", "done", "cleanup"],
+      "command": "cmux-worktree done ",
+      "confirm": true
+    },
+    {
+      "name": "List worktrees",
+      "keywords": ["worktree", "list"],
+      "command": "cmux-worktree list"
+    }
+  ]
+}

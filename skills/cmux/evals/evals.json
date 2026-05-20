@@ -1,0 +1,74 @@
+{
+  "skill_name": "cmux",
+  "evals": [
+    {
+      "id": 1,
+      "name": "spawn-three-agents-on-bug",
+      "prompt": "I want to race claude, codex, and opencode on the same memory leak in src/cache.ts. Each should get its own git worktree and its own cmux workspace, with the same prompt. Then I want to be able to tell which one finishes first without staring at the screens.",
+      "expected_output": "Solution should: (1) use cmux-worktree new in a loop with -a flag for the agent and pass the same prompt; (2) explain that the sidebar rings + Cmd+Shift+U is how you know who's blocked or done; (3) mention cmux setup-hooks if not already installed; (4) include a cleanup step using cmux-worktree done for the losers. Should NOT recommend tmux, screen, or splits in a single workspace (which loses sidebar metadata).",
+      "files": [],
+      "expectations": [
+        "Recommends cmux-worktree new in a loop (or its underlying git worktree add + cmux new-workspace decomposition) with -a flag for the agent, passing the same prompt to each",
+        "Mentions cmux setup-hooks (or hook installation) so agent rings/notifications work",
+        "Explains sidebar rings + Cmd+Shift+U (or equivalent attention-routing mechanism) is how you tell who's done/blocked without staring",
+        "Includes a cleanup/teardown step using cmux-worktree done for losing agents",
+        "Does NOT recommend tmux, screen, or splits in a single workspace as the primary mechanism (single-workspace splits lose sidebar metadata)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ci-watcher-pings-workspace",
+      "prompt": "I have several feature branches each open as cmux workspaces. Write me something that polls GitHub Actions every minute and rings the cmux tab whose branch matches a failing run. I'm in a cmux terminal already.",
+      "expected_output": "Should: (1) use cmux list-workspaces --json and jq to find the workspace whose branch field matches the failing branch; (2) use cmux notify --workspace <ref> to fire the notification; (3) use cmux set-status with --color red as a sticky indicator; (4) recommend resolving handles to UUIDs once if the script runs long. Should NOT use index-based handles (workspace:2) in a long-running loop.",
+      "files": [],
+      "expectations": [
+        "Uses cmux list-workspaces --json piped through jq to find the workspace whose branch field matches the failing branch",
+        "Uses cmux notify --workspace <ref> to fire the notification on the matching workspace",
+        "Uses cmux set-status (with --color red or similar) as a sticky/visible indicator on the failing workspace",
+        "Recommends resolving the workspace handle to a stable identifier (UUID or ref captured up front) rather than relying on a literal index like workspace:2 inside a long-running poll loop",
+        "Polls every minute (sleep 60 or equivalent) and uses gh / GitHub Actions API to detect failing runs"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "explain-claude-teams-vs-omc",
+      "prompt": "What's the difference between cmux claude-teams and cmux omc? Which should I use if I want one Claude that spawns a few sub-agents to parallelize a refactor?",
+      "expected_output": "Should explain: (1) claude-teams uses Claude's experimental teammate mode and is the lighter-weight option; (2) omc is oh-my-claudecode, a separate npm package with 19 agents and pre-built pipelines; (3) for one Claude with sub-agents, claude-teams is the right answer; (4) both use the same tmux-shim trick at ~/.cmuxterm/<agent>-bin/tmux to render sub-agents as native cmux splits.",
+      "files": [],
+      "expectations": [
+        "Explains claude-teams uses Claude Code's experimental teammate mode (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) and is the lighter-weight option",
+        "Explains omc is oh-my-claudecode, a separate / external npm package with its own pre-built multi-agent pipeline (mentions ~19 agents or similar specifics)",
+        "Recommends claude-teams as the right answer for one Claude with sub-agents on a refactor",
+        "Mentions both use the same fake tmux shim trick (e.g., ~/.cmuxterm/<agent>-bin/tmux) to render sub-agents as native cmux splits"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "wire-worktree-palette-action",
+      "prompt": "Add a 'New worktree + claude' action to my repo's cmux.json so I can trigger it from the command palette. The script that does the work is called cmux-worktree.",
+      "expected_output": "Should: (1) produce a cmux.json snippet with an actions.<id> entry of type 'command'; (2) set palette: true; (3) command should be 'cmux-worktree new' (and explain that static commands can't prompt for input, so the user types the slug in the resulting terminal); (4) optionally add an icon. Should NOT invent fields not in the cmux.json schema.",
+      "files": [],
+      "expectations": [
+        "Produces a valid cmux.json snippet with an actions.<id> entry of type 'command'",
+        "Sets palette: true so it appears in the command palette",
+        "command field is set to 'cmux-worktree new' (the actual binary/script name)",
+        "Notes/explains that type 'command' actions are static and cannot prompt for input — the user types the slug in the resulting terminal (or recommends a wrapper for fully-driven input)",
+        "Does NOT invent fields outside the cmux.json schema (e.g., no fictional input/prompt/args fields)"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "drive-other-agent-from-script",
+      "prompt": "From a script running in workspace 1, I want to send a TypeScript error report to whichever workspace has the agent fixing the parser bug. The fixing agent's workspace is named 'fix-parser'. How?",
+      "expected_output": "Should: (1) use cmux list-workspaces --json | jq to resolve the ref by name field; (2) use cmux send --workspace <ref> -- '<text>\\n' (with explicit newline) to deliver the message; (3) optionally use cmux notify alongside; (4) explain that without \\n the text is typed but not submitted.",
+      "files": [],
+      "expectations": [
+        "Uses cmux list-workspaces --json piped through jq (or equivalent) to resolve the workspace ref by its name field rather than hardcoding a workspace index",
+        "Uses cmux send --workspace <ref> to deliver the error-report text to the resolved workspace",
+        "Includes an explicit \\n (newline) at the end of the cmux send payload to actually submit the message",
+        "Explains that without the \\n the text is typed but not submitted (i.e., the newline is what triggers Enter)",
+        "Optionally suggests cmux notify alongside cmux send for attention routing"
+      ]
+    }
+  ]
+}

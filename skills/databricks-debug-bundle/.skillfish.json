@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "databricks-debug-bundle",
+  "owner": "jeremylongshore",
+  "repo": "claude-code-plugins-plus-skills",
+  "path": "plugins/saas-packs/databricks-pack/skills/databricks-debug-bundle",
+  "branch": "main",
+  "sha": "ecffaad0b8024f079c9293b11fea01ef8cc7d845",
+  "source": "manual"
+}
